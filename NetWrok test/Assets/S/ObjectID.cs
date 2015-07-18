@@ -4,22 +4,22 @@ using UnityEngine.Networking;
 
 public class ObjectID : NetworkBehaviour {
 	[SyncVar]public Vector3 pos;	//同步座標
-	[SyncVar]public Color col;		//同部顏色
-	[SyncVar]public string myid,pname;
-	public bool isbody;
+	[SyncVar]public Color col;		//同步顏色
+	[SyncVar]public string myid,pname;	//myid是自己待會要更名的id pname則是代表哪個玩家產生的
+	public bool isbody;	//判斷自己是ind還是body 
 
 
 
 
 	void Start(){
-		gameObject.name = myid;
+		gameObject.name = myid; //先給自己更名
 
-		if(isbody){
-			GameObject.Find(pname).GetComponent<Play>().body=gameObject;
+		if(isbody){ //判斷自己是ind還是body後 把自己加入對方的參考
+			GameObject.Find(pname).GetComponent<Play>().body=gameObject; 
 		}else{
 			GameObject.Find(pname).GetComponent<Play>().ind=gameObject;
 		}
-		transform.parent = GameObject.Find(pname).transform;
+		transform.parent = GameObject.Find(pname).transform;//把自己加入對方的子物件
 
 	}
 	
