@@ -19,7 +19,7 @@ public class ObjectID : NetworkBehaviour {
 		}else{
 			GameObject.Find(pname).GetComponent<Play>().ind=gameObject;
 		}
-		transform.parent = GameObject.Find(pname).transform;//把自己加入對方的子物件
+		transform.parent = GameObject.Find(pname).transform;//把自己加入對方的子物件 這樣當玩家斷線的時候會被同部刪除
 
 	}
 	
