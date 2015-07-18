@@ -6,9 +6,9 @@ public class Play : NetworkBehaviour {
 	public GameObject body,ind;	//要使用的參考物件 body是代表玩家的位置 ind則是告知其他人自己要前往哪裡的指標
 	[SerializeField]public GameObject pbody,pind;//參考預製物件
 
-	public Camera mycam;
-	public NetworkIdentity mynetid;
-	[SyncVar]public string playid;
+	public Camera mycam;	//自己的攝影機參考
+	public NetworkIdentity mynetid;	//為了獲得自己的ID
+	[SyncVar]public string playid; 
 
 	
 
